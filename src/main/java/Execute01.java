@@ -38,7 +38,8 @@ public class Execute01 {
 
 
         // 5. step close the connection and statement
-
+        con.close();
+        st.close();
 
     }
 }
