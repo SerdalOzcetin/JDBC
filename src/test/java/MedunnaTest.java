@@ -44,5 +44,8 @@ public class MedunnaTest {
         System.out.println(created_by);
 
         Assert.assertTrue(created_by.contains("john_doe"));
+
+        //         User closes the connection
+        JdbcUtils.closeConnectionAndstatement();
     }
 }
