@@ -73,7 +73,7 @@ public class CallableStatement01 {
         cst02.execute();
 
         // 6. step call the result ın lıne wıth return data type
-        System.out.println(cst02.getBigDecimal(1));
+        System.out.printf("%.2f",cst02.getBigDecimal(1));
 
 
     }
