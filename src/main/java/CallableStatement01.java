@@ -34,6 +34,8 @@ public class CallableStatement01 {
 
         // 4. step
         // ıt ıs used registerOurParameter() for return type and ıs used set()...methods for parameters
+
+
         cst01.registerOutParameter(1, Types.NUMERIC);
         cst01.setInt(2,4);
         cst01.setInt(3,6);
@@ -43,6 +45,35 @@ public class CallableStatement01 {
 
         // 6. step call the result ın lıne wıth return data type
         System.out.println(cst01.getBigDecimal(1));
+
+        System.out.println("---------------------------------------------------------------");
+        // task: write a function to calculate the volume of cone
+        String sql02 = "CREATE OR REPLACE FUNCTION Volume_of_Cone(r NUMERIC, h NUMERIC)\n" +
+                "RETURNS NUMERIC\n" +
+                "LANGUAGE plpgsql\n" +
+                "AS\n" +
+                "$$\n" +
+                "BEGIN\n" +
+                "\n" +
+                "RETURN 3.14*r*r*h/3;\n" +
+                "\n" +
+                "END\n" +
+                "$$\n";
+
+        st.execute(sql02);
+
+        CallableStatement cst02 =  con.prepareCall("{? = call Volume_of_Cone(?, ?)}");
+
+
+        cst02.registerOutParameter(1, Types.NUMERIC);
+        cst02.setInt(2,4);
+        cst02.setInt(3,6);
+
+        // 5. step run the wıth execute() methods
+        cst02.execute();
+
+        // 6. step call the result ın lıne wıth return data type
+        System.out.println(cst02.getBigDecimal(1));
 
 
     }
