@@ -40,7 +40,7 @@ public class CallableStatement01 {
         cst01.setInt(2,4);
         cst01.setInt(3,6);
 
-        // 5. step run the wıth execute() methods
+        // 5. step run wıth execute() methods
         cst01.execute();
 
         // 6. step call the result ın lıne wıth return data type
